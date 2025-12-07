@@ -178,6 +178,15 @@
             opacity: 0;
             transition: opacity 0.5s ease-out;
         }
+        
+        /* New Animation for Show More */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in-up {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -255,7 +264,7 @@
                     <div class="flex justify-center md:justify-end items-center z-10 animate-fade-in-up w-full">
                         <div class="relative w-56 h-56 md:w-64 md:h-64 lg:w-80 lg:h-80 rounded-full border-2 border-[#d4af37] p-2 shadow-[0_0_30px_rgba(212,175,55,0.3)] backdrop-blur-sm" style="background-color: var(--card-bg);">
                             <img 
-                                src="image.jpg" alt="Saroor Ahmed"
+                                src="image.jpg" alt="Saroor Ahmed" 
                                 class="w-full h-full object-cover rounded-full grayscale hover:grayscale-0 transition-all duration-500"
                             >
                             <div class="absolute inset-0 rounded-full border-t-2 border-[#d4af37] animate-spin-slow pointer-events-none opacity-70"></div>
@@ -411,12 +420,94 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- ========================================== -->
+                <!-- HIDDEN PROJECTS (Expandable Section)       -->
+                <!-- ========================================== -->
+                <div id="more-projects" class="grid md:grid-cols-3 gap-10 mt-10 hidden">
+                    
+                    <!-- PROJECT 4: Sentiment Analysis -->
+                    <div onclick="openProject('sentiment')" class="luxury-card group h-[450px] flex flex-col relative overflow-hidden cursor-pointer">
+                        <div class="absolute top-0 right-0 p-6 z-10">
+                            <i class="fas fa-expand-alt text-[#d4af37] opacity-0 group-hover:opacity-100 transition-all duration-500"></i>
+                        </div>
+                        <div class="h-1/2 flex items-center justify-center p-8 relative" style="background: linear-gradient(to bottom, var(--bg-color), var(--card-bg));">
+                            <i class="fas fa-comments text-5xl text-[#d4af37] opacity-80 group-hover:scale-110 transition-transform duration-500"></i>
+                        </div>
+                        <div class="h-1/2 p-8 flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-lg mb-2" style="color: var(--text-main);">Sentiment Analysis</h3>
+                                <p class="text-xs uppercase tracking-wider mb-4" style="color: var(--text-muted);">NLP & Text Mining</p>
+                                <p class="text-sm font-light leading-relaxed line-clamp-3" style="color: var(--text-muted);">
+                                    Analyzed 50k+ customer reviews to gauge brand sentiment using NLTK and VADER, visualizing trends over time.
+                                </p>
+                            </div>
+                            <div class="flex gap-4 text-[#d4af37] text-xs tracking-widest uppercase opacity-60">
+                                <span>NLP</span> • <span>Python</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PROJECT 5: Fraud Detection -->
+                    <div onclick="openProject('fraud')" class="luxury-card group h-[450px] flex flex-col relative overflow-hidden cursor-pointer">
+                        <div class="absolute top-0 right-0 p-6 z-10">
+                            <i class="fas fa-expand-alt text-[#d4af37] opacity-0 group-hover:opacity-100 transition-all duration-500"></i>
+                        </div>
+                        <div class="h-1/2 flex items-center justify-center p-8 relative" style="background: linear-gradient(to bottom, var(--bg-color), var(--card-bg));">
+                            <i class="fas fa-shield-alt text-5xl text-[#d4af37] opacity-80 group-hover:scale-110 transition-transform duration-500"></i>
+                        </div>
+                        <div class="h-1/2 p-8 flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-lg mb-2" style="color: var(--text-main);">Fraud Detection</h3>
+                                <p class="text-xs uppercase tracking-wider mb-4" style="color: var(--text-muted);">Anomaly Detection</p>
+                                <p class="text-sm font-light leading-relaxed line-clamp-3" style="color: var(--text-muted);">
+                                    Built a real-time anomaly detection system for financial transactions using Isolation Forest algorithms.
+                                </p>
+                            </div>
+                            <div class="flex gap-4 text-[#d4af37] text-xs tracking-widest uppercase opacity-60">
+                                <span>Sklearn</span> • <span>API</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PROJECT 6: ETL Pipeline -->
+                    <div onclick="openProject('etl')" class="luxury-card group h-[450px] flex flex-col relative overflow-hidden cursor-pointer">
+                        <div class="absolute top-0 right-0 p-6 z-10">
+                            <i class="fas fa-expand-alt text-[#d4af37] opacity-0 group-hover:opacity-100 transition-all duration-500"></i>
+                        </div>
+                        <div class="h-1/2 flex items-center justify-center p-8 relative" style="background: linear-gradient(to bottom, var(--bg-color), var(--card-bg));">
+                            <i class="fas fa-network-wired text-5xl text-[#d4af37] opacity-80 group-hover:scale-110 transition-transform duration-500"></i>
+                        </div>
+                        <div class="h-1/2 p-8 flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-lg mb-2" style="color: var(--text-main);">Cloud ETL Pipeline</h3>
+                                <p class="text-xs uppercase tracking-wider mb-4" style="color: var(--text-muted);">Data Engineering</p>
+                                <p class="text-sm font-light leading-relaxed line-clamp-3" style="color: var(--text-muted);">
+                                    Automated data extraction and loading from multiple sources into a centralized Data Warehouse using Apache Airflow.
+                                </p>
+                            </div>
+                            <div class="flex gap-4 text-[#d4af37] text-xs tracking-widest uppercase opacity-60">
+                                <span>AWS</span> • <span>Airflow</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- SHOW MORE BUTTON -->
+                <div class="text-center mt-16">
+                    <button id="show-more-btn" onclick="toggleMoreProjects()" class="btn-gold px-10 py-3 text-xs font-bold uppercase tracking-[0.2em] inline-block cursor-pointer transition-all hover:scale-105">
+                        Show More
+                    </button>
+                </div>
+
             </div>
         </section>
 
         <!-- Inquiry Section -->
         <section id="inquiry" class="min-h-[60vh] flex items-center justify-center px-6 pb-20">
-            <div class="max-w-3xl w-full text-center relative">
+            <!-- Added relative and z-20 to ensure content is above background layers -->
+            <div class="max-w-3xl w-full text-center relative z-20">
                 
                 <h2 class="text-4xl md:text-6xl mb-8">Initiate <span class="text-gold-gradient">Dialogue</span></h2>
                 <div class="separator mx-auto mb-10"></div>
@@ -425,7 +516,8 @@
                 </p>
 
                 <div class="flex flex-col md:flex-row justify-center gap-8">
-                    <a href="mailto:saroorq@gmail.com" class="btn-gold px-12 py-4 text-xs font-bold uppercase tracking-[0.2em] inline-block">
+                    <!-- Added z-30 to button to guarantee clickability -->
+                    <a href="mailto:saroorq@gmail.com" class="btn-gold px-12 py-4 text-xs font-bold uppercase tracking-[0.2em] inline-block relative z-30">
                         Send Inquiry
                     </a>
                 </div>
@@ -437,10 +529,11 @@
                     <a href="https://github.com/Saroor-Ahmed" target="_blank" class="hover:text-[#d4af37] transition-colors">
                         <i class="fab fa-github text-2xl"></i>
                     </a>
-                    <a href="mailto:saroorq@gmail.com" class="hover:text-[#d4af37] transition-colors">
+                    <!-- Added z-30 to mail icon -->
+                    <a href="mailto:saroorq@gmail.com" class="hover:text-[#d4af37] transition-colors relative z-30">
                         <i class="fas fa-envelope text-2xl"></i>
                     </a>
-                    <a href="https://wa.me/923337025200" target="_blank" class="hover:text-[#d4af37] transition-colors">
+                    <a href="https://wa.me/03337025200" target="_blank" class="hover:text-[#d4af37] transition-colors">
                         <i class="fab fa-whatsapp text-2xl"></i>
                     </a>
                 </div>
@@ -567,8 +660,78 @@
                 ],
                 tech: ['R Language', 'arules', 'ggplot2', 'Data Mining'],
                 impact: '+12% Avg Order Value'
+            },
+            'sentiment': {
+                category: 'Natural Language Processing',
+                title: 'Customer Sentiment Analysis',
+                tags: ['Python', 'NLTK', 'Visualization'],
+                description: `
+                    Understanding customer feedback is crucial for brand reputation. I scraped and analyzed over 50,000 product reviews to determine the overall sentiment (Positive, Negative, Neutral) trends over a 12-month period.
+                    <br><br>
+                    I used the VADER lexicon for sentiment scoring and visualized the correlation between sentiment scores and product ratings.
+                `,
+                insights: [
+                    'Detected a spike in negative sentiment correlated with a specific software update release.',
+                    'Keywords "Battery" and "Charge" appeared frequently in negative reviews, alerting R&D.',
+                    'Positive sentiment increased by 15% after addressing the top 3 user complaints.'
+                ],
+                tech: ['Python', 'NLTK', 'Seaborn', 'Web Scraping'],
+                impact: 'Improved CSAT Score'
+            },
+            'fraud': {
+                category: 'Anomaly Detection',
+                title: 'Financial Fraud Detection',
+                tags: ['Machine Learning', 'Isolation Forest', 'Finance'],
+                description: `
+                    In the fintech sector, detecting fraudulent transactions in real-time is paramount. I built an unsupervised learning model to flag suspicious activities based on transaction patterns.
+                    <br><br>
+                    Using the Isolation Forest algorithm, the model learns "normal" behavior and flags outliers. I handled the highly imbalanced dataset using SMOTE techniques during the training phase.
+                `,
+                insights: [
+                    'The model successfully flagged 85% of fraudulent transactions with a low false-positive rate.',
+                    ' identified that international transactions between 2am and 4am had the highest risk profile.',
+                    'Reduced manual review time for analysts by prioritizing high-risk flags.'
+                ],
+                tech: ['Scikit-learn', 'Imbalanced-learn', 'Pandas', 'NumPy'],
+                impact: '$200k Fraud Prevented'
+            },
+            'etl': {
+                category: 'Data Engineering',
+                title: 'Automated ETL Pipeline',
+                tags: ['AWS', 'Airflow', 'SQL'],
+                description: `
+                    To support a new BI dashboard, I engineered a robust ETL (Extract, Transform, Load) pipeline. This automated the flow of data from disparate CSV files and APIs into a central Redshift Data Warehouse.
+                    <br><br>
+                    I used Apache Airflow to schedule and monitor the jobs, ensuring data freshness every morning for the executive team.
+                `,
+                insights: [
+                    'Reduced data availability latency from 24 hours to 1 hour.',
+                    'Automated data quality checks prevented bad data from entering the warehouse.',
+                    'Created a unified "Single Source of Truth" for the marketing and sales teams.'
+                ],
+                tech: ['Apache Airflow', 'AWS Redshift', 'Python', 'SQL'],
+                impact: '100% Automation'
             }
         };
+
+        // --- TOGGLE PROJECTS LOGIC ---
+        function toggleMoreProjects() {
+            const moreProjects = document.getElementById('more-projects');
+            const btn = document.getElementById('show-more-btn');
+            
+            if (moreProjects.classList.contains('hidden')) {
+                moreProjects.classList.remove('hidden');
+                moreProjects.classList.add('animate-fade-in-up');
+                btn.innerText = "Show Less";
+            } else {
+                moreProjects.classList.add('hidden');
+                moreProjects.classList.remove('animate-fade-in-up');
+                btn.innerText = "Show More";
+                
+                // Optional: Smooth scroll back to the "Show More" button area so user isn't lost
+                document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' });
+            }
+        }
 
         // --- NAVIGATION LOGIC ---
         function openProject(projectId) {
